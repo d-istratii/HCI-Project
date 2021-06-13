@@ -1,0 +1,16 @@
+.home {
+    margin: 15px 15px;
+    width: 100%;
+}
+
+.header {
+    height: 20vh;
+}
+
+.body {
+    height: 80vh;
+}
+
+.footer {
+    height: 20vh;
+}
