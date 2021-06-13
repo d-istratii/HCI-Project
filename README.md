@@ -21,6 +21,10 @@ Group 1 - TA. Lorena
 1. Install [Webstorm](https://www.jetbrains.com/webstorm/).
 2. Open from VCS > Log into your Github account > Choose and clone this repository.
 
+## Libraries
+
+For pages routing, I used [ReactRouter](https://reactrouter.com/web/guides/quick-start) (see [App.js](src/App.js) for more details)
+
 The rest of this README is generated automatically by Webstorm.
 ## Getting Started with Create React App
 
