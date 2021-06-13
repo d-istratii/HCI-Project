@@ -20,6 +20,10 @@ Group 1 - TA. Lorena
 ### II. [Webstorm](https://www.jetbrains.com/webstorm/) (highly recommend)
 1. Install [Webstorm](https://www.jetbrains.com/webstorm/).
 2. Open from VCS > Log into your Github account > Choose and clone this repository.
+3. Inside the cloned folder, install packages
+   ```
+    npm install
+   ```
 
 ## Libraries
 
