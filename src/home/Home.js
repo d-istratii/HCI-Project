@@ -2,7 +2,8 @@ import React, {Component} from "react";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
 import styles from "./home.module.css"
-import { Button } from '@material-ui/core';
+import {Button} from '@material-ui/core';
+
 
 class Home extends Component {
 
@@ -20,13 +21,16 @@ class Home extends Component {
             })
         })
     }
-
     render() {
         return (
             <div className={styles.home}>
                 <Header className={styles.header}/>
                 <div className={styles.body}>
                     <h3>This is a home page {this.state.count}</h3>
+                    <h2>My Map</h2>
+                    <div id="map" className="map"></div>
+
+
                     <Button variant="contained" color="primary" onClick={this.toggleShow}>Report trash</Button>
                     {
                         (this.state.show) ? <h2>this is a component</h2> : null
