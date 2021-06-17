@@ -31,7 +31,7 @@ class Home extends Component {
                     <div>
                         <MyMap />
                     </div>
-                    <br/>
+                    <br/><br/>
                     <Button variant="contained" color="primary" onClick={this.toggleShow}>Report trash</Button>
                     {
                         (this.state.show) ? <h2>this is a component</h2> : null
