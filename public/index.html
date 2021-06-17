@@ -42,7 +42,6 @@
     <div id="root">
 
     </div>
-    <h2>My Map</h2>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -55,18 +54,5 @@
     -->
 
   </body>
-  <script type="text/javascript">
-    var map = new ol.Map({
-      target: 'map',
-      layers: [
-        new ol.layer.Tile({
-          source: new ol.source.OSM()
-        })
-      ],
-      view: new ol.View({
-        center: ol.proj.fromLonLat([37.41, 8.82]),
-        zoom: 4
-      })
-    });
-  </script>
+
 </html>

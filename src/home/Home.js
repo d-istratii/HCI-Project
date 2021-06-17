@@ -3,7 +3,7 @@ import Header from "../header/Header";
 import Footer from "../footer/Footer";
 import styles from "./home.module.css"
 import {Button} from '@material-ui/core';
-
+import MyMap from "./MyMap";
 
 class Home extends Component {
 
@@ -28,9 +28,10 @@ class Home extends Component {
                 <div className={styles.body}>
                     <h3>This is a home page {this.state.count}</h3>
                     <h2>My Map</h2>
-                    <div id="map" className="map"></div>
-
-                    <br></br>
+                    <div>
+                        <MyMap />
+                    </div>
+                    <br/>
                     <Button variant="contained" color="primary" onClick={this.toggleShow}>Report trash</Button>
                     {
                         (this.state.show) ? <h2>this is a component</h2> : null
@@ -38,7 +39,6 @@ class Home extends Component {
                 </div>
                 <Footer className={styles.footer}/>
             </div>
-
         )
     }
 }
