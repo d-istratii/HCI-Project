@@ -8,14 +8,16 @@ import View from 'ol/View';
 import {Style} from 'ol/style';
 import {Vector as VectorLayer} from 'ol/layer';
 import $ from 'jquery';
-import SourceOSM from "ol/source/OSM";
-import LayerTile from "ol/layer/Tile";
-
-
 import {Fill, RegularShape, Stroke} from 'ol/style';
-var stroke = new Stroke({color: 'black', width: 2});
-var fill = new Fill({color: 'red'});
-var styles = {
+import {fromLonLat} from "ol/proj";
+import OSM from 'ol/source/OSM';
+import TileLayer from "ol/layer/Tile";
+import Geolocation from 'ol/Geolocation';
+
+
+const stroke = new Stroke({color: 'black', width: 2});
+const fill = new Fill({color: 'red'});
+const styles = {
     'square': new Style({
         image: new RegularShape({
             fill: fill,
@@ -97,7 +99,7 @@ var styles = {
             }),
         })],
 };
-var styleKeys = [
+const styleKeys = [
     'x',
     'cross',
     'star',
@@ -105,38 +107,43 @@ var styleKeys = [
     'square',
     'rectangle',
     'stacked'];
-var count = 50;
-var features = new Array(count);
-var e = 50000;
-const xOffset = - 8900000;
+const count = 50;
+const features = new Array(count);
+const e = 50000;
+const xOffset = -8900000;
+const yOffset = -30000;
 
-for (var i = 0; i < count; ++i) {
-    var coordinates = [2 * e * Math.random() - e + xOffset, 2 * e * Math.random() - e];
+for (let i = 0; i < count; ++i) {
+    const coordinates = [2 * e * Math.random() - e + xOffset, 2 * e * Math.random() - e + yOffset];
     features[i] = new Feature(new Point(coordinates));
     features[i].setStyle(
         styles[styleKeys[Math.floor(Math.random() * styleKeys.length)]]
     );
 }
 
-var source = new VectorSource({
+const source = new VectorSource({
     features: features,
 });
 
-var vectorLayer = new VectorLayer({
+const vectorLayer = new VectorLayer({
     source: source,
 });
+
 
 class PublicMap extends Component {
     constructor(props) {
         super(props);
         this.state = {center: [0, 0], zoom: 1};
         this.map = new Map({
-            layers: [new LayerTile({source: new SourceOSM()}), vectorLayer],
+            layers: [new TileLayer({
+                source: new OSM(),
+
+            }), vectorLayer],
             target: document.getElementById('map'),
             view: new View({
-                center: [0, 0],
-                zoom: 1,
-
+                zoom: 5,
+                minZoom: 5,
+                maxZoom: 20,
             }),
         });
     }
@@ -149,23 +156,13 @@ class PublicMap extends Component {
     componentDidMount() {
         this.map.setTarget("map");
         // Listen to map changes
-        this.map.on("moveend", () => {
-            let center = this.map.getView().getCenter();
-            let zoom = this.map.getView().getZoom();
-            this.setState({center, zoom});
-        });
-    }
-
-    userAction() {
-        this.setState({center: [546000, 6868000], zoom: 5});
+        this.setState({center: [-8900000, -35000], zoom: 9});
     }
 
     render() {
         this.updateMap(); // Update map on render?
         return (
-            <div id="map" className="map" style={{width: "90%", height: "560px"}}>
-                <div id="popup"></div>
-            </div>
+            <div id="map" className="map" style={{width: "90%", height: "560px"}}></div>
         );
     }
 }
