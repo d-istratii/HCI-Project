@@ -8,6 +8,7 @@ import VectorSource from 'ol/source/Vector'
 import OSM from "ol/source/OSM";
 import Draw from "ol/interaction/Draw";
 import Modify from "ol/interaction/Modify";
+import Menu from "./Menu/Menu.js";
 
 var raster = new TileLayer({
     source: new OSM(),
@@ -55,7 +56,7 @@ class PublicMap extends Component {
         this.map.addInteraction(draw)
     }
 
-    changeIcon() {
+    changeIcon = () => {
         this.map.removeInteraction(draw)
         this.addInteractions()
     }
@@ -66,11 +67,7 @@ class PublicMap extends Component {
                 <div id="map" className="map" style={{width: "90%", height: "560px"}}/>
                 <form className="form-inline">
                     <label htmlFor="type">Geometry type &nbsp;</label>
-                    <select id="type" onChange={() => this.changeIcon()}>
-                        <option value="Point">Point</option>
-                        <option value="Polygon">Polygon</option>
-                        <option value="Circle">Circle</option>
-                    </select>
+                    <Menu eventHandler={this.changeIcon}/>
                 </form>
             </div>
         );
