@@ -107,11 +107,12 @@ const styleKeys = [
     'square',
     'rectangle',
     'stacked'];
-const count = 50;
+const count = 40;
 const features = new Array(count);
-const e = 50000;
-const xOffset = -8900000;
-const yOffset = -30000;
+const e = 10000;
+const xOffset = -9040000;
+const yOffset = -505000;
+const mapSize = 15000;
 
 for (let i = 0; i < count; ++i) {
     const coordinates = [2 * e * Math.random() - e + xOffset, 2 * e * Math.random() - e + yOffset];
@@ -129,6 +130,7 @@ const vectorLayer = new VectorLayer({
     source: source,
 });
 
+let mapLoaded = false;
 
 class PublicMap extends Component {
     constructor(props) {
@@ -137,26 +139,29 @@ class PublicMap extends Component {
         this.map = new Map({
             layers: [new TileLayer({
                 source: new OSM(),
-
             }), vectorLayer],
             target: document.getElementById('map'),
             view: new View({
-                zoom: 5,
-                minZoom: 5,
+                extent: [xOffset-2*mapSize, yOffset -mapSize, xOffset+2*mapSize, yOffset +mapSize],
+                minZoom: 1,
+                zoom: 2,
                 maxZoom: 20,
             }),
         });
     }
 
+
     updateMap() {
-        this.map.getView().setCenter(this.state.center);
-        this.map.getView().setZoom(this.state.zoom);
+        if(this.state.center[0] !== 0 && !mapLoaded){
+            this.map.getView().setCenter(this.state.center);
+            this.map.getView().setZoom(this.state.zoom);
+            mapLoaded = true;
+        }
     }
 
     componentDidMount() {
         this.map.setTarget("map");
-        // Listen to map changes
-        this.setState({center: [-8900000, -35000], zoom: 9});
+        this.setState({center: [xOffset, yOffset], zoom: 9});
     }
 
     render() {
