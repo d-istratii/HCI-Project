@@ -17,24 +17,22 @@ class Home extends Component {
     toggleShow = () => {
         this.setState((prevState) => {
             return ({
-                show: !prevState.show
+                show: true
             })
         })
     }
+
     render() {
         return (
             <div className={styles.home}>
                 <Header className={styles.header}/>
                 <div className={styles.body}>
-                    <h3>This is a home page {this.state.count}</h3>
-                    <h2>My Map</h2>
-                    <div>
-                        <MyMap />
-                    </div>
-                    <br/><br/>
+                    <MyMap/>
+                    <Button variant="contained" color="secondary">Reset</Button>
+                    <br/>
                     <Button variant="contained" color="primary" onClick={this.toggleShow}>Report trash</Button>
                     {
-                        (this.state.show) ? <h2>this is a component</h2> : null
+                        (this.state.show) ? <h2>Trash location has been submitted!</h2> : null
                     }
                 </div>
                 <Footer className={styles.footer}/>

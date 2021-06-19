@@ -1,4 +1,6 @@
 import React, {Component} from "react";
+import styles from "./menu.module.css";
+import {List, ListItem, Button, ButtonGroup} from "@material-ui/core";
 
 class Menu extends Component {
     constructor(props) {
@@ -7,11 +9,39 @@ class Menu extends Component {
 
     render() {
         return (
-            <select id="type" onChange={() => this.props.eventHandler()}>
-                <option value="Point">Point</option>
-                <option value="Polygon">Polygon</option>
-                <option value="Circle">Circle</option>
-            </select>
+            <div>
+                {/*<label>Options</label>*/}
+                {/*<ul className={styles.menu}>*/}
+                {/*    <li>*/}
+                {/*        <label>Trash size</label>*/}
+                {/*        <button onClick={() => {*/}
+                {/*            this.props.placemark.setClassName('');*/}
+                {/*            this.props.placemark.setColor('#f00');*/}
+                {/*        }}>Small</button>*/}
+                {/*        <button onClick={() => {*/}
+                {/*            this.props.placemark.setClassName('shield');*/}
+                {/*            this.props.placemark.setColor('#00f');*/}
+                {/*        }}>Large</button>*/}
+                {/*    </li>*/}
+                {/*</ul>*/}
+                <label>Options</label>
+                <List component="nav">
+                    <ListItem>
+                        <label>Trash size</label>
+                        <ButtonGroup variant="contained" color="primary" aria-label="contained primary button group">
+                            <Button onClick={() => {
+                                this.props.placemark.setClassName('');
+                                this.props.placemark.setColor('#f00');
+                            }}>Small</Button>
+                            <Button onClick={() => {
+                                this.props.placemark.setClassName('shield');
+                                this.props.placemark.setColor('#00f');
+                            }}>Large</Button>
+                        </ButtonGroup>
+                    </ListItem>
+                </List>
+            </div>
+
         );
     }
 }

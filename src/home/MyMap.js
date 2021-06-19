@@ -6,9 +6,8 @@ import TileLayer from 'ol/layer/Tile'
 import VectorLayer from 'ol/layer/Vector'
 import VectorSource from 'ol/source/Vector'
 import OSM from "ol/source/OSM";
-import Draw from "ol/interaction/Draw";
-import Modify from "ol/interaction/Modify";
 import Menu from "./Menu/Menu.js";
+import Placemark from "ol-ext/overlay/Placemark";
 
 var raster = new TileLayer({
     source: new OSM(),
@@ -20,10 +19,15 @@ var vector = new VectorLayer({
     source: source,
 });
 
+var placemark = new Placemark({
+    contentColor: '#000',
+    autoPan: true,
+    autoPanAnimation: { duration: 250 }
+});
+
 const xOffset = -9040000;
 const yOffset = -505000;
 const mapSize = 15000;
-var draw, typeSelect;
 
 class PublicMap extends Component {
     constructor(props) {
@@ -37,38 +41,23 @@ class PublicMap extends Component {
                 maxZoom: 20,
                 center: [0, 0]
             }),
+            overlays: [placemark]
         });
     }
 
     componentDidMount() {
         this.map.setTarget("map")
-        var modify = new Modify({source: source});
-        this.map.addInteraction(modify);
-        this.addInteractions()
-    }
-
-    addInteractions() {
-        typeSelect = document.getElementById("type")
-        draw = new Draw({
-            source: source,
-            type: typeSelect.value,
-        });
-        this.map.addInteraction(draw)
-    }
-
-    changeIcon = () => {
-        this.map.removeInteraction(draw)
-        this.addInteractions()
+        this.map.on('click', function(e) {
+            placemark.show(e.coordinate);
+        })
     }
 
     render() {
         return (
             <div>
                 <div id="map" className="map" style={{width: "90%", height: "560px"}}/>
-                <form className="form-inline">
-                    <label htmlFor="type">Geometry type &nbsp;</label>
-                    <Menu eventHandler={this.changeIcon}/>
-                </form>
+                <br/>
+                <Menu placemark={placemark}/>
             </div>
         );
     }
