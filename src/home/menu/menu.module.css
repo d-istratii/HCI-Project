@@ -1,0 +1,19 @@
+.menu {
+    width: 50vw;
+    padding: 1vh;
+    background-color: #CCF4FF;
+}
+
+.trashSize {
+}
+
+.material {
+    margin-top: 2vh;
+}
+
+.summary {
+    width: 50vw;
+    padding: 1vh;
+    margin-top: 1vh;
+    background-color: #CCDBFF;
+}

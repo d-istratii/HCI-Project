@@ -6,7 +6,7 @@ import TileLayer from 'ol/layer/Tile'
 import VectorLayer from 'ol/layer/Vector'
 import VectorSource from 'ol/source/Vector'
 import OSM from "ol/source/OSM";
-import Menu from "./Menu/Menu.js";
+import Menu from "./menu/Menu.js";
 import Placemark from "ol-ext/overlay/Placemark";
 import {Button, makeStyles} from "@material-ui/core";
 
@@ -25,6 +25,7 @@ var placemark = new Placemark({
     autoPan: true,
     autoPanAnimation: { duration: 250 }
 });
+placemark.setColor('#00f');
 
 const xOffset = -9040000;
 const yOffset = -505000;
@@ -60,39 +61,12 @@ class PublicMap extends Component {
     render() {
         return (
             <div>
-                <div id="map" className="map" style={{width: "90%", height: "560px"}}/>
+                <div id="map" className="map" style={{width: "80%", height: "560px"}}/>
                 <br/>
                 <Menu placemark={placemark}/>
-                <div style={{padding: "5px"}}>
-                    <ResetButton clickHandler={this.refreshPage}>Reset</ResetButton>
-                </div>
-
             </div>
         );
     }
-}
-
-const useStylesReset = makeStyles({
-    root: {
-        background: '#AC0ED6',
-        color: 'white',
-        padding: '6px 12px',
-        '&:hover': {
-            backgroundColor: '#DC58FF',
-        },
-    },
-});
-
-
-function ResetButton(props) {
-    const classes = useStylesReset();
-    return (
-        <Button classes={{
-            root: classes.root,
-            label: classes.label}} onClick={() => props.clickHandler()}>
-            Reset
-        </Button>
-    )
 }
 
 export default PublicMap;

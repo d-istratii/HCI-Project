@@ -8,9 +8,12 @@
 }
 
 .body {
-    height: 100vh;
+    margin-bottom: 5vh;
 }
 
 .footer {
-    height: 30vh;
+}
+
+.buttons {
+    margin-top: 1vh;
 }

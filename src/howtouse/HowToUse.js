@@ -10,7 +10,9 @@ class HowToUse extends Component {
             <div className={styles.home}>
                 <Header className={styles.header}/>
                 <div className={styles.body}>
-                    <h3>this is a how to use page</h3>
+                    <h4>
+                        Trash collecting site
+                    </h4>
                 </div>
                 <Footer className={styles.footer}/>
             </div>
