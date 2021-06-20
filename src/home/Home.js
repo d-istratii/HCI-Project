@@ -1,9 +1,10 @@
 import React, {Component} from "react";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
-import styles from "./home.module.css"
-import {Button} from '@material-ui/core';
+import {Button, makeStyles} from '@material-ui/core';
+import styles from "./home.module.css";
 import MyMap from "./MyMap";
+import SubmitButton from "./Buttons"
 
 class Home extends Component {
 
@@ -22,17 +23,19 @@ class Home extends Component {
         })
     }
 
+    refreshPage = () => {
+        window.location.reload();
+    }
+
     render() {
         return (
             <div className={styles.home}>
                 <Header className={styles.header}/>
                 <div className={styles.body}>
                     <MyMap/>
-                    <Button variant="contained" color="secondary">Reset</Button>
-                    <br/>
-                    <Button variant="contained" color="primary" onClick={this.toggleShow}>Report trash</Button>
+                    <SubmitButton clickHandler={this.toggleShow}>Report trash</SubmitButton>
                     {
-                        (this.state.show) ? <h2>Trash location has been submitted!</h2> : null
+                        (this.state.show) ? <h3>Trash location has been submitted!</h3> : null
                     }
                 </div>
                 <Footer className={styles.footer}/>

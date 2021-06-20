@@ -10,20 +10,6 @@ class Menu extends Component {
     render() {
         return (
             <div>
-                {/*<label>Options</label>*/}
-                {/*<ul className={styles.menu}>*/}
-                {/*    <li>*/}
-                {/*        <label>Trash size</label>*/}
-                {/*        <button onClick={() => {*/}
-                {/*            this.props.placemark.setClassName('');*/}
-                {/*            this.props.placemark.setColor('#f00');*/}
-                {/*        }}>Small</button>*/}
-                {/*        <button onClick={() => {*/}
-                {/*            this.props.placemark.setClassName('shield');*/}
-                {/*            this.props.placemark.setColor('#00f');*/}
-                {/*        }}>Large</button>*/}
-                {/*    </li>*/}
-                {/*</ul>*/}
                 <label>Options</label>
                 <List component="nav">
                     <ListItem>
@@ -41,7 +27,6 @@ class Menu extends Component {
                     </ListItem>
                 </List>
             </div>
-
         );
     }
 }
