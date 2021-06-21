@@ -9,6 +9,7 @@ import {Vector as VectorLayer} from 'ol/layer';
 import OSM from 'ol/source/OSM';
 import TileLayer from "ol/layer/Tile";
 import {styleKeys, styles} from "./icons";
+import Draw from 'ol/interaction/Draw';
 
 const count = 40;
 const features = new Array(count);
@@ -35,27 +36,44 @@ const vectorLayer = new VectorLayer({
 
 let mapLoaded = false;
 
+const sourceDrawing = new VectorSource({wrapX: false});
+
+const vectorDrawing = new VectorLayer({
+    source: sourceDrawing,
+});
+
+let draw; // global so we can remove it later
+draw = new Draw({
+    source: sourceDrawing,
+    type: "LineString",
+    freehand: true,
+});
+
 class PublicMap extends Component {
     constructor(props) {
         super(props);
         this.state = {center: [0, 0], zoom: 1};
         this.map = new Map({
-            layers: [new TileLayer({
-                source: new OSM(),
-            }), vectorLayer],
+            layers:
+                [
+                    new TileLayer({source: new OSM(),}),
+                    vectorLayer,
+                    vectorDrawing,
+                ],
             target: document.getElementById('map'),
             view: new View({
-                extent: [xOffset-2*mapSize, yOffset -mapSize, xOffset+2*mapSize, yOffset +mapSize],
+                extent: [xOffset - 2 * mapSize, yOffset - mapSize, xOffset + 2 * mapSize, yOffset + mapSize],
                 minZoom: 1,
                 zoom: 2,
                 maxZoom: 20,
             }),
         });
+        this.map.addInteraction(draw);          // Starts drawing mode
+        //this.map.removeInteraction(draw)      // Stops drawing mode
     }
 
-
     updateMap() {
-        if(this.state.center[0] !== 0 && !mapLoaded){
+        if (this.state.center[0] !== 0 && !mapLoaded) {
             this.map.getView().setCenter(this.state.center);
             this.map.getView().setZoom(this.state.zoom);
             mapLoaded = true;
