@@ -1,15 +1,14 @@
 import React, {Component} from "react";
 import styles from "./menu.module.css";
 import {
-    List,
-    ListItem,
     Button,
     ButtonGroup,
     Checkbox,
-    FormGroup,
+    FormControl,
     FormControlLabel,
+    FormGroup,
     FormLabel,
-    FormControl, Typography
+    Typography
 } from "@material-ui/core";
 
 class Menu extends Component {

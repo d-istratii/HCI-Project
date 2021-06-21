@@ -8,7 +8,11 @@ class Footer extends Component {
         return (
             <div>
                 <ButtonGroup>
-                    <Button variant="contained" style={{color: "black", backgroundColor: "#FFDA7C", marginRight: "1vw"}}><InfoIcon/>About</Button>
+                    <Button variant="contained" style={{
+                        color: "black",
+                        backgroundColor: "#FFDA7C",
+                        marginRight: "1vw"
+                    }}><InfoIcon/>About</Button>
                     <Button variant="contained" style={{color: "black", backgroundColor: "#FFDA7C"}}><LiveHelpIcon/>FAQ</Button>
                 </ButtonGroup>
             </div>

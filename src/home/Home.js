@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
-import {Button, ButtonGroup, makeStyles, Typography} from '@material-ui/core';
+import {Button} from '@material-ui/core';
 import styles from "./home.module.css";
 import MyMap from "./MyMap";
 import RefreshIcon from '@material-ui/icons/Refresh';
@@ -44,33 +44,14 @@ class Home extends Component {
                         <Button variant="contained"
                                 style={{color: "white", background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)"}}
                                 onClick={this.toggleShow}><PublishIcon/>Report trash</Button>{
-                            (this.state.show) ? <h4>Location has been reported!</h4> : null
-                        }
+                        (this.state.show) ? <h4>Location has been reported!</h4> : null
+                    }
                     </div>
                 </div>
                 <Footer className={styles.footer}/>
             </div>
         )
     }
-}
-
-const useStylesSubmit = makeStyles({
-    root: {
-        background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-        color: 'white',
-    },
-});
-
-function SubmitButton(props) {
-    const classes = useStylesSubmit();
-    return (
-        <Button
-            classes={{
-                root: classes.root,
-            }} onClick={() => props.clickHandler()}>
-            Report Trash
-        </Button>
-    );
 }
 
 export default Home

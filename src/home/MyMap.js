@@ -8,7 +8,6 @@ import VectorSource from 'ol/source/Vector'
 import OSM from "ol/source/OSM";
 import Menu from "./menu/Menu.js";
 import Placemark from "ol-ext/overlay/Placemark";
-import {Button, makeStyles} from "@material-ui/core";
 
 var raster = new TileLayer({
     source: new OSM(),
@@ -23,7 +22,7 @@ var vector = new VectorLayer({
 var placemark = new Placemark({
     contentColor: '#000',
     autoPan: true,
-    autoPanAnimation: { duration: 250 }
+    autoPanAnimation: {duration: 250}
 });
 placemark.setColor('#00f');
 
@@ -37,7 +36,7 @@ class PublicMap extends Component {
         this.map = new Map({
             layers: [raster, vector],
             view: new View({
-                extent: [xOffset-2*mapSize, yOffset -mapSize, xOffset+2*mapSize, yOffset +mapSize],
+                extent: [xOffset - 2 * mapSize, yOffset - mapSize, xOffset + 2 * mapSize, yOffset + mapSize],
                 minZoom: 1,
                 zoom: 2,
                 maxZoom: 20,
@@ -49,7 +48,7 @@ class PublicMap extends Component {
 
     componentDidMount() {
         this.map.setTarget("map")
-        this.map.on('click', function(e) {
+        this.map.on('click', function (e) {
             placemark.show(e.coordinate);
         })
     }

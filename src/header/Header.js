@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import styles from "./header.module.css"
 import {withRouter} from 'react-router-dom'
-import {Button, ButtonGroup} from "@material-ui/core";
+import {Button} from "@material-ui/core";
 import HomeIcon from '@material-ui/icons/Home';
 import {Assignment} from "@material-ui/icons";
 
@@ -13,8 +13,10 @@ class Header extends Component {
     render() {
         return (
             <div className={styles.headerButton}>
-                <Button variant="contained" style={{color: "black", backgroundColor: "#FFDA7C", marginRight: "1vw"}} onClick={() => this.props.history.push("/")}><HomeIcon/>Home</Button>
-                <Button variant="contained" style={{color: "black", backgroundColor: "#FFDA7C"}} onClick={() => this.props.history.push("/howtouse")}><Assignment/>Volunteer</Button>
+                <Button variant="contained" style={{color: "black", backgroundColor: "#FFDA7C", marginRight: "1vw"}}
+                        onClick={() => this.props.history.push("/")}><HomeIcon/>Home</Button>
+                <Button variant="contained" style={{color: "black", backgroundColor: "#FFDA7C"}}
+                        onClick={() => this.props.history.push("/howtouse")}><Assignment/>Volunteer</Button>
             </div>
         )
     }
