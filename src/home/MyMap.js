@@ -5,108 +5,11 @@ import Map from 'ol/Map';
 import Point from 'ol/geom/Point';
 import VectorSource from 'ol/source/Vector';
 import View from 'ol/View';
-import {Style} from 'ol/style';
 import {Vector as VectorLayer} from 'ol/layer';
-import $ from 'jquery';
-import {Fill, RegularShape, Stroke} from 'ol/style';
-import {fromLonLat} from "ol/proj";
 import OSM from 'ol/source/OSM';
 import TileLayer from "ol/layer/Tile";
-import Geolocation from 'ol/Geolocation';
+import {styleKeys, styles} from "./icons";
 
-
-const stroke = new Stroke({color: 'black', width: 2});
-const fill = new Fill({color: 'red'});
-const styles = {
-    'square': new Style({
-        image: new RegularShape({
-            fill: fill,
-            stroke: stroke,
-            points: 4,
-            radius: 10,
-            angle: Math.PI / 4,
-        }),
-    }),
-    'rectangle': new Style({
-        image: new RegularShape({
-            fill: fill,
-            stroke: stroke,
-            radius: 10 / Math.SQRT2,
-            radius2: 10,
-            points: 4,
-            angle: 0,
-            scale: [1, 0.5],
-        }),
-    }),
-    'triangle': new Style({
-        image: new RegularShape({
-            fill: fill,
-            stroke: stroke,
-            points: 3,
-            radius: 10,
-            rotation: Math.PI / 4,
-            angle: 0,
-        }),
-    }),
-    'star': new Style({
-        image: new RegularShape({
-            fill: fill,
-            stroke: stroke,
-            points: 5,
-            radius: 10,
-            radius2: 4,
-            angle: 0,
-        }),
-    }),
-    'cross': new Style({
-        image: new RegularShape({
-            fill: fill,
-            stroke: stroke,
-            points: 4,
-            radius: 10,
-            radius2: 0,
-            angle: 0,
-        }),
-    }),
-    'x': new Style({
-        image: new RegularShape({
-            fill: fill,
-            stroke: stroke,
-            points: 4,
-            radius: 10,
-            radius2: 0,
-            angle: Math.PI / 4,
-        }),
-    }),
-    'stacked': [
-        new Style({
-            image: new RegularShape({
-                fill: fill,
-                stroke: stroke,
-                points: 4,
-                radius: 5,
-                angle: Math.PI / 4,
-                displacement: [0, 10],
-            }),
-        }),
-        new Style({
-            image: new RegularShape({
-                fill: fill,
-                stroke: stroke,
-                points: 4,
-                radius: 10,
-                angle: Math.PI / 4,
-            }),
-        })],
-};
-const styleKeys = [
-    'x',
-    'cross',
-    'star',
-    'triangle',
-    'square',
-    'rectangle',
-    'stacked'];
 const count = 40;
 const features = new Array(count);
 const e = 10000;
