@@ -22,3 +22,9 @@
     text-align: center;
     margin-top: 1vh;
 }
+
+@media screen and (max-width: 800px) {
+    .home {
+        max-width: 95vw;
+    }
+}
