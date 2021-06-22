@@ -10,6 +10,7 @@ import OSM from 'ol/source/OSM';
 import TileLayer from "ol/layer/Tile";
 import {styles} from "./icons";
 import Draw from 'ol/interaction/Draw';
+import mapStyle from "./map.module.css";
 
 const count = 40;
 const features = new Array(count);
@@ -71,7 +72,7 @@ class TrashMap extends Component {
     render() {
         return (
             <div>
-                <div id="map" className="map" style={{width: "80%", height: "560px"}}/>
+                <div id="map" className={mapStyle.map}/>
             </div>
         );
     }

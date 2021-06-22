@@ -8,6 +8,7 @@ import VectorSource from 'ol/source/Vector'
 import OSM from "ol/source/OSM";
 import Menu from "./menu/Menu.js";
 import Placemark from "ol-ext/overlay/Placemark";
+import styles from "./map.module.css";
 
 var raster = new TileLayer({
     source: new OSM(),
@@ -60,7 +61,7 @@ class PublicMap extends Component {
     render() {
         return (
             <div>
-                <div id="map" className="map" style={{width: "80%", height: "560px"}}/>
+                <div id="map" className={styles.map}/>
                 <br/>
                 <Menu placemark={placemark}/>
             </div>

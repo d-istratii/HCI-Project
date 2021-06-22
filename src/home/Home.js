@@ -33,7 +33,7 @@ class Home extends Component {
             <div className={styles.home}>
                 <Header className={styles.header}/>
                 <div className={styles.body}>
-                    <h4>
+                    <h4 className={styles.title}>
                         Trash reporting site
                     </h4>
                     <MyMap/>

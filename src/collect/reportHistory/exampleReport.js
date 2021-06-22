@@ -31,13 +31,16 @@ class SampleReport extends Component {
                         Materials: {this.props.materials}.
                     </li>
                 </ul>
-                {
-                    (this.state.taskAssigned) ?
-                        <strong style={{color: "green"}}>Task has been assigned to you!</strong> :
-                        <Button variant="contained" color="primary" onClick={this.takeTask}><AssignmentTurnedInIcon/>
-                            Take task
-                        </Button>
-                }
+                <div className={styles.button}>
+                    {
+                        (this.state.taskAssigned) ?
+                            <strong style={{color: "green"}}>Task has been assigned to you!</strong> :
+                            <Button variant="contained" color="primary" onClick={this.takeTask}><AssignmentTurnedInIcon/>
+                                Take task
+                            </Button>
+                    }
+                </div>
+
             </div>
         );
     }
