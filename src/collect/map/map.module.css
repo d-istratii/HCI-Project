@@ -1,4 +1,6 @@
 .map {
-    width: 100%;
+    outline-style: solid;
+    margin: auto;
+    width: 95%;
     height: 560px;
 }

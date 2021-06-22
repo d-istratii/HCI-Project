@@ -39,9 +39,9 @@ class PublicMap extends Component {
             view: new View({
                 extent: [xOffset - 2 * mapSize, yOffset - mapSize, xOffset + 2 * mapSize, yOffset + mapSize],
                 minZoom: 1,
-                zoom: 2,
+                zoom: 1,
                 maxZoom: 20,
-                center: [0, 0]
+                center: [-9040000, -505000]
             }),
             overlays: [placemark]
         });
@@ -60,7 +60,7 @@ class PublicMap extends Component {
 
     render() {
         return (
-            <div>
+            <div className={styles.mapContainer}>
                 <div id="map" className={styles.map}/>
                 <br/>
                 <Menu placemark={placemark}/>

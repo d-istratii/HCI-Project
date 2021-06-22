@@ -55,7 +55,7 @@ class TrashMap extends Component {
                 minZoom: 1,
                 zoom: 10,
                 maxZoom: 20,
-                center: [0, 0]
+                center: [-9040000, -505000]
             }),
         });
     }
