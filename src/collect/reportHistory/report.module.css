@@ -1,0 +1,13 @@
+.report {
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    background-color: #E7F4FF;
+    padding-bottom: 1vw;
+}
+
+.title {
+    text-align: center;
+}
+
+@media screen and (max-width: 800px) {
+}

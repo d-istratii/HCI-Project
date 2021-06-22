@@ -6,7 +6,7 @@ import {
     Route,
     Link
 } from "react-router-dom";
-import HowToUse from "./howtouse/HowToUse";
+import Collect from "./collect/Collect";
 
 class App extends Component {
   render() {
@@ -14,8 +14,8 @@ class App extends Component {
         <div className="App">
             <Router>
                 <Switch>
-                    <Route path="/howToUse">
-                        <HowToUse/>
+                    <Route path="/collect">
+                        <Collect/>
                     </Route>
                     <Route path="/">
                         <Home/>

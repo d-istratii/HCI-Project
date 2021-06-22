@@ -1,0 +1,12 @@
+.exampleReport {
+    background-color: #FFF6DB;
+    margin: 1vh auto;
+}
+
+.button {
+    text-align: center;
+    margin: 1vw auto;
+}
+
+@media screen and (max-width: 800px) {
+}
