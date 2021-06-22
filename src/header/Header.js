@@ -16,7 +16,7 @@ class Header extends Component {
                 <Button variant="contained" style={{color: "black", backgroundColor: "#FFDA7C", marginRight: "1vw"}}
                         onClick={() => this.props.history.push("/")}><HomeIcon/>Home</Button>
                 <Button variant="contained" style={{color: "black", backgroundColor: "#FFDA7C"}}
-                        onClick={() => this.props.history.push("/howtouse")}><Assignment/>Volunteer</Button>
+                        onClick={() => this.props.history.push("/collect")}><Assignment/>Volunteer</Button>
             </div>
         )
     }
