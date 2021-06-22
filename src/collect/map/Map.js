@@ -8,11 +8,8 @@ import View from 'ol/View';
 import {Vector as VectorLayer} from 'ol/layer';
 import OSM from 'ol/source/OSM';
 import TileLayer from "ol/layer/Tile";
-import {styleKeys, styles} from "./icons";
+import {styles} from "./icons";
 import Draw from 'ol/interaction/Draw';
-import Menu from "../../home/menu/Menu";
-import {Button} from '@material-ui/core';
-import UndoIcon from '@material-ui/icons/Undo';
 
 const count = 40;
 const features = new Array(count);

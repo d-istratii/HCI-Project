@@ -1,0 +1,11 @@
+.exampleReport {
+    width: 30vw;
+    background-color: #CCDBFF;
+    margin: 1vw;
+}
+
+@media screen and (max-width: 800px) {
+    .exampleReport {
+        width: 70vw;
+    }
+}

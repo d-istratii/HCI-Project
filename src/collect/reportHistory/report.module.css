@@ -1,0 +1,14 @@
+.report {
+    height: 37vh;
+    width: 40vw;
+    background-color: #CCF4FF;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+}
+
+@media screen and (max-width: 800px) {
+    .report {
+        height: 56vh;
+        width: 80vw;
+    }
+}
