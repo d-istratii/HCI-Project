@@ -17,3 +17,13 @@
     margin-top: 1vh;
     background-color: #CCDBFF;
 }
+
+@media screen and (max-width: 800px) {
+    .menu {
+        width: 80vw;
+    }
+
+    .summary {
+        width: 80vw;
+    }
+}
