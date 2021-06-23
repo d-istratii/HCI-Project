@@ -11,8 +11,13 @@ class Collect extends Component {
         return (
             <div className={styles.home}>
                 <Header className={styles.header}/>
-                <h4 className={collectStyle.title}>Trash collecting site</h4>
+                    <h4 className={collectStyle.title}>
+                        Trash collecting site
+                    </h4>
                 <Map/>
+                <h6 className={styles.instruction}>
+                    Select the circular area of trash and confirm the collection task.
+                </h6>
                 <Report/>
                 <Footer className={styles.footer}/>
             </div>

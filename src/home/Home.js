@@ -36,13 +36,14 @@ class Home extends Component {
                     <h4 className={styles.title}>
                         Trash reporting site
                     </h4>
+
                     <MyMap/>
                     <div className={styles.buttons}>
                         <Button variant="contained"
-                                style={{color: "white", backgroundColor: "#AC0ED6", marginRight: "1vw"}}
+                                style={{color: "white", backgroundColor: "#AC0ED6", marginRight: "2vw", marginTop: "2vw"}}
                                 onClick={this.refreshPage}><RefreshIcon/>Reset</Button>
                         <Button variant="contained"
-                                style={{color: "white", background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)"}}
+                                style={{color: "white", background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)", marginTop: "2vw"}}
                                 onClick={this.toggleShow}><PublishIcon/>Report trash</Button>{
                         (this.state.show) ? <h4>Location has been reported!</h4> : null
                     }
