@@ -21,7 +21,7 @@ class SampleReport extends Component {
         return (
             <div className={styles.exampleReport}>
                 <Typography variant="h6">
-                    Trash reported on {this.props.reportedTime}
+                    Trash reported at {this.props.reportedTime}
                 </Typography>
                 <ul>
                     <li>
