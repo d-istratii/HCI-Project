@@ -28,6 +28,9 @@ class SampleReport extends Component {
                         Coordinate: {this.props.coordinate}.
                     </li>
                     <li>
+                        Trash size: {this.props.size}.
+                    </li>
+                    <li>
                         Materials: {this.props.materials}.
                     </li>
                 </ul>
