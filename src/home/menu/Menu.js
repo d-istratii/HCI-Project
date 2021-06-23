@@ -49,6 +49,9 @@ class Menu extends Component {
     render() {
         return (
             <div>
+                <h6 className={styles.instruction}>
+                    Select the location of the trash on the map and then select trash size and materials.
+                </h6>
                 <div className={styles.menu}>
                     <Typography variant="h5">
                         Menu

@@ -6,6 +6,10 @@
 .trashSize {
 }
 
+.instruction {
+    text-align: center;
+}
+
 .material {
     margin-top: 2vh;
 }
